@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Connection Mike Harmsen</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/mike.css">
+    <link rel="stylesheet" href="smartcon.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <a href="../mike.html" class="back-button">← Terug naar homepagina</a>
+            <h1>Smart Connection Mike Harmsen</h1>
+            <div class="profile-pic">
+                <img src="../../../images/mike.jpg" alt="Mike Harmsen">
+            </div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#smart-technology">Smart Technology</a></li>
+                    <li><a href="smartcon.html" class="active">Smart Connection</a></li>
+                    <li><a href="#smart-business">Smart Business</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="assignment-container">
+                <!-- Assignment 1: Weather Section -->
+                <section class="assignment">
+                    <h2>Weer API</h2>
+                    <div class="city-selection">
+                        <h3>Selecteer een stad om het weerbericht te zien</h3>
+                        <select id="city-select" onchange="fetchWeather()">
+                            <option value="Amsterdam,NL">Amsterdam, Netherlands</option>
+                            <option value="London,GB">London, United Kingdom</option>
+                            <option value="New York,US">New York, United States</option>
+                            <option value="Paris,FR">Paris, France</option>
+                            <option value="Tokyo,JP">Tokyo, Japan</option>
+                        </select>
+                    </div>
+                    <div id="weather-container">
+                        <p id="city-name">Stad: </p>
+                        <p id="weather-description">Weer: </p>
+                        <p id="temperature">Temperatuur: </p>
+                        <p id="humidity">Lucht vochtigheid: </p>
+                    </div>
+                </section>
+
+                <!-- NASA Picture of the Day Section -->
+                <section class="assignment">
+                    <h2>NASA Foto van de dag</h2>
+                    <div>
+                        <label for="nasa-date">Selecteer een datum:</label>
+                        <input type="date" id="nasa-date" max="2024-12-31" onchange="fetchNasaPhoto()">
+                    </div>
+                    <div id="nasa-container">
+                        <img id="nasa-img" src="" alt="NASA Foto van de dag">
+                        <p id="nasa-title"></p>
+                        <p id="nasa-explanation"></p>
+                    </div>
+                </section>
+
+                <!-- Assignment 3: Spotify API Integration -->
+                <section class="assignment">
+                    <h2>Spotify's today's top hits</h2>
+                    <button onclick="getPlaylist()">Check de hits!</button>
+                    <div id="playlist-info">
+                        <h3 id="playlist-name"></h3>
+                        <p id="playlist-description"></p>
+                        <div id="playlist-tracks"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Minor Smart Industry</p>
+        </footer>
+
+        <script>
+            const apiKey = '1185e5aaa1cd42de2a4f134d27c380f2';  // OpenWeather API key
+
+            // Function to fetch weather data
+            async function fetchWeather() {
+                const citySelect = document.getElementById('city-select').value;
+                const [city, country] = citySelect.split(',');
+
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric&lang=nl`);
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        document.getElementById('city-name').textContent = `Stad: ${data.name}`;
+                        document.getElementById('weather-description').textContent = `Weer: ${data.weather[0].description}`;
+                        document.getElementById('temperature').textContent = `Temperatuur: ${data.main.temp} °C`;
+                        document.getElementById('humidity').textContent = `Lucht vochtigheid: ${data.main.humidity}%`;
+                    } else {
+                        console.error(`Error: ${data.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error fetching the weather data:', error);
+                }
+            }
+
+            // Function to fetch NASA Picture of the Day
+            async function fetchNasaPhoto() {
+                const nasaApiKey = 'MXCGY03TXij2fbCpqnrKf2UGlPrMx8MoqDvTn1I3'; // Replace with your NASA API key
+                const dateInput = document.getElementById('nasa-date').value;
+                
+                // Check if a date is selected; if not, use today's date
+                const selectedDate = dateInput ? dateInput : new Date().toISOString().split('T')[0];
+                
+                try {
+                    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=${selectedDate}`);
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        document.getElementById('nasa-img').src = data.url;
+                        document.getElementById('nasa-title').textContent = `Titel: ${data.title}`;
+                        document.getElementById('nasa-explanation').textContent = `Uitleg: ${data.explanation}`;
+                    } else {
+                        console.error(`Error: ${data.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error fetching the NASA data:', error);
+                }
+            }
+
+            // Fetch default city weather and NASA photo on page load
+            window.onload = () => {
+                fetchWeather();
+                fetchNasaPhoto();
+            };
+
+            // Spotify API Client Credentials Flow
+            const clientId = 'b99105a96bcd4cc4941c779c09514e6b'; // Your client ID
+            const clientSecret = '0488d857b21c4d9abbfd5ba7bdd79a8b'; // Your client secret
+
+            async function getAccessToken() {
+                const url = 'https://accounts.spotify.com/api/token';
+                const headers = new Headers({
+                    'Authorization': 'Basic ' + btoa(clientId + ':' + clientSecret),
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                });
+
+                const body = 'grant_type=client_credentials';
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: headers,
+                    body: body
+                });
+
+                const data = await response.json();
+
+                return data.access_token; // Return the access token
+            }
+
+            // Function to fetch playlist info
+            async function getPlaylist() {
+                const token = await getAccessToken();
+                const playlistId = '37i9dQZF1DXcBWIGoYBM5M'; // Replace with your playlist ID
+
+                const response = await fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                const data = await response.json();
+
+                // Display playlist name and description
+                document.getElementById('playlist-name').innerText = data.name;
+                document.getElementById('playlist-description').innerText = data.description;
+
+                // Display playlist tracks
+                const tracksContainer = document.getElementById('playlist-tracks');
+                tracksContainer.innerHTML = ''; // Clear previous tracks
+
+                data.tracks.items.forEach((item, index) => {
+                    const track = item.track;
+                    const trackElement = document.createElement('p');
+                    trackElement.innerHTML = `<b>${index + 1}. ${track.name}</b> by ${track.artists.map(artist => artist.name).join(', ')}`;
+                    tracksContainer.appendChild(trackElement);
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>

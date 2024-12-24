@@ -1,0 +1,96 @@
+/* Active link styling */
+.navbar a.active {
+    background-color: red;  /* Highlight the active link with a different background */
+    color: black;  /* Change the text color */
+    border-color: #4CAF50;  /* Keep the border green */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Optional: Add a subtle shadow */
+}
+
+.weather-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#weather-container p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+.city-selection {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#city-select {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.weather-section {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#weather-container p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+/* Centers the content within the footer */
+footer {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #f1f1f1; /* Optional: Set the background color */
+    position: relative; /* Ensures footer stays at the bottom */
+    bottom: 0;
+}
+
+/* Optional: Add some styling to the text */
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #333; /* Text color */
+}
+
+.assignment-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.assignment {
+    flex: 1;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#nasa-container img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+#nasa-container p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+@media (max-width: 768px) {
+    .assignment-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .assignment {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}

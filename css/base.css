@@ -1,0 +1,174 @@
+/* Common styles across all team member pages */
+
+/* Zorg ervoor dat de header de volledige breedte vult */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Zorg ervoor dat de hoogte 100% is voor de hele pagina */
+    font-family: 'Montserrat', sans-serif; /* Gebruik Montserrat als het standaard lettertype */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Zorg ervoor dat de body het volledige scherm gebruikt */
+}
+
+/* Header container */
+header {
+    display: flex;
+    justify-content: space-between; /* Zorgt voor ruimte tussen de linker en midden sectie */
+    align-items: center; /* Zorg ervoor dat ze verticaal gecentreerd zijn */
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Groene achtergrondkleur */
+    color: white;
+    width: 100%; /* Zorgt ervoor dat de header de volledige breedte vult */
+    box-sizing: border-box; /* Zorg ervoor dat padding wordt meegeteld in de totale breedte */
+}
+
+/* Linkerkant van de header met profielfoto en naam */
+.header-left {
+    display: flex;
+    align-items: center; /* Zorg ervoor dat de profielfoto en naam verticaal worden uitgelijnd */
+}
+
+.header-left .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-right: 15px; /* Ruimte tussen de foto en de naam */
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: Montserrat, sans-serif;
+}
+
+/* Centraal gedeelte voor de navigatie */
+.header-center .navbar {
+    display: flex;
+    justify-content: center; /* Zorg ervoor dat de navigatieknoppen in het midden staan */
+}
+
+.header-center .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.header-center .navbar li {
+    margin: 0 15px;
+}
+
+.header-center .navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border: 2px solid white; 
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.header-center .navbar a:hover {
+    background-color: white;
+    color: #4CAF50;
+}
+
+/* Styling for the learning objectives */
+.learning-objectives {
+    max-width: 80%;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.learning-objectives h2 {
+    font-size: 1.8rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.learning-objectives p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    line-height: 1.6;
+    text-align: justify;
+    padding-left: 15px; /* Indent the paragraph */
+}
+
+.learning-objectives strong {
+    font-weight: bold;
+}
+
+/* Section for weekly updates */
+.week-filter {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.week-filter select {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #4CAF50;
+}
+
+.weekly-updates {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.week-box {
+    background-color: white;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.week-header {
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 10px 0 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.week-content {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 0 10px 10px 10px;
+}
+
+.week-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 15px 0;
+    text-align: justify;
+}
+
+.week-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+}

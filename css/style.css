@@ -1,0 +1,225 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: Montserrat;
+    
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-image: url('../images/backgroundrobot2.jpg'); /* Path naar je afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de volledige breedte en hoogte vult */
+    background-position: center center; /* Centreert de afbeelding */
+    background-repeat: no-repeat; /* Voorkomt dat de afbeelding wordt herhaald */
+    min-height: calc(100vh - 160px); /* Houdt rekening met de hoogte van header en footer */
+}
+
+
+
+h1, h2 {
+    color: #ffffff;
+}
+
+.grote-text {
+    font-size: 4rem; /* Maak de tekst groter */
+    font-weight: 800; /* Maak de tekst extra vet (bold) */
+    color: #ffffff; /* Licht grijze kleur voor de tekst */
+    text-align: center; /* Zorg dat de tekst gecentreerd blijft */
+    display: inline-block; /* Zorg ervoor dat de achtergrond zich alleen rond de tekst bevindt */
+}
+
+
+.welcome-container {
+    display: flex; /* Zet de container op flex */
+    justify-content: center; /* Centreert de tekst horizontaal */
+    align-items: center; /* Centreert de tekst verticaal (indien nodig) */
+    margin-top: 50px; /* Ruimte onder de container */
+}
+
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Teamsectie naar onder verplaatsen */
+.team-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 100px 20px; /* Meer padding om het naar het midden van de pagina te schuiven */
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4CAF50;
+    cursor: pointer; /* Makes it clear the image is clickable */
+    transition: transform 0.3s ease;
+}
+
+.team-member img:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+}
+
+.team-member p {
+    margin-top: 30px;
+    font-size: 1.3em;
+    color: #ffffff;
+}
+
+
+
+/* Groene knop toevoegen onder teamsectie */
+.agriware-button {
+    text-align: center;
+}
+
+.agriware-button .btn-green {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    font-weight: 600; /* Maak de tekst extra vet (bold) */
+    
+}
+
+.agriware-button .btn-green:hover {
+    background-color: #45a049; /* Kleurverandering bij hover */
+}
+
+.about-section {
+    margin-top: 40px;
+    text-align: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.click-instruction {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.click-instruction p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    font-family: Montserrat, sans-serif; /* Montserrat font toegevoegd */
+}
+
+
+/* Aanpassen van media queries indien nodig */
+@media (max-width: 768px) {
+    .welcome-section h2 {
+        font-size: 2rem;
+    }
+    .team-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .agriware-button .btn-green {
+        font-size: 1rem;
+    }
+}
+
+.info-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh; /* Zorgt ervoor dat de sectie precies het scherm vult */
+    margin: 0; /* Verwijder eventuele marges */
+}
+
+.info-box {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    max-width: 600px;
+    text-align: center;
+    margin: 0; /* Verwijder marges */
+}
+
+.info-box h2 {
+    color: #4CAF50;
+}
+
+.info-box p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Stijl voor de 'Terug naar homepagina' knop */
+.back-button-section {
+    text-align: center; /* Centreert de knop */
+    margin-top: 20px; /* Ruimte boven de knop */
+}
+
+.back-button-section .btn-green {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    font-weight: 600; /* Maak de tekst extra vet (bold) */
+    display: inline-block; /* Zodat de knop inline wordt weergegeven */
+}
+
+.back-button-section .btn-green:hover {
+    background-color: #45a049; /* Kleurverandering bij hover */
+}
+
+
+
+
+
