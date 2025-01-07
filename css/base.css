@@ -7,6 +7,29 @@ html, body {
     height: 100%; /* Zorg ervoor dat de hoogte 100% is voor de hele pagina */
     font-family: 'Montserrat', sans-serif; /* Gebruik Montserrat als het standaard lettertype */
 }
+/* Actieve navigatieknop */
+.header-center .navbar a.active {
+    background-color: #f0f0f0; /* Lichte grijze kleur voor de actieve knop */
+    color: #333; /* Donkere tekstkleur om goed zichtbaar te blijven */
+    border: 2px solid #ccc; /* Grijze rand om de knop */
+}
+/* Stijl de terugknop als een knop */
+.back-button {
+    text-decoration: none; /* Verwijder de standaard onderstreping van de link */
+    display: inline-block; /* Zorg ervoor dat de knop de juiste afmetingen krijgt */
+    background-color: #f0f0f0; /* Lichte grijze achtergrondkleur */
+    color: #333; /* Donkere tekstkleur */
+    font-size: 1.1rem; /* Zorg ervoor dat de tekst goed leesbaar is */
+    padding: 10px 20px; /* Voeg wat padding toe voor de knop */
+    border: 2px solid #ccc; /* Grijze rand om de knop */
+    border-radius: 6px; /* Maak de hoeken van de knop afgerond */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Maak het klik effect vloeiend */
+}
+
+.back-button:hover {
+    background-color: #4CAF50; /* Verander de achtergrondkleur bij hover */
+    color: white; /* Maak de tekst wit bij hover */
+}
 
 body {
     display: flex;
@@ -40,6 +63,28 @@ header {
     border: 3px solid white;
     margin-right: 15px; /* Ruimte tussen de foto en de naam */
 }
+
+/* Linkerkant van de header met profielfoto en naam */
+.header-left {
+    display: flex;
+    align-items: center; /* Zorg ervoor dat de profielfoto en naam verticaal worden uitgelijnd */
+}
+
+.header-left .profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    margin-right: 15px; /* Ruimte tussen de foto en de naam */
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: Montserrat, sans-serif;
+}
+
 
 .header-left h1 {
     margin: 0;
