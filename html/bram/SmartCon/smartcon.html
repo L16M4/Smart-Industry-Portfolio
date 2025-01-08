@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Connection Arian Hazrati</title>
+    <link rel="stylesheet" href="../../../css/base.css">
+    <link rel="stylesheet" href="../../../css/bram.css">
+    <link rel="stylesheet" href="smartcon.css">
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Header met profielfoto en navigatieknoppen -->
+        <header>
+            <div class="header-left">
+                <!-- Profielfoto en naam naast elkaar -->
+                <img src="../../../images/bram.png" alt="Bram de Weger" class="profile-pic">
+                <h1>Portfolio Bram de Weger</h1>
+                <div class="header-center">
+                    <nav class="navbar">
+                        <ul>
+                            <li><a href="../mike.html">Terug</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="../bram.html">Smart Me</a></li>
+                        <li><a href="../SmartTech/smarttech.html">Smart Technology</a></li>
+                        <li><a href="smartcon.html" class="active">Smart Connection</a></li>
+                        <li><a href="../SmartBus/smartbus.html">Smart Business</a></li>
+                    </ul>
+                </nav>
+            </div>
+            
+        </header>
+
+        <main>
+            <div class="assignment-container">
+                <!-- Assignment 1: Weather Section -->
+                <section class="assignment">
+                    <h2>Weather API</h2>
+                    <div class="city-selection">
+                        <h3>Kies stad </h3>
+                        <select id="city-select" onchange="fetchWeather()">
+                            <option value="Amsterdam,NL">Amsterdam, Netherlands</option>
+                            <option value="London,GB">London, United Kingdom</option>
+                            <option value="New York,US">New York, United States</option>
+                            <option value="Paris,FR">Paris, France</option>
+                            <option value="Tokyo,JP">Tokyo, Japan</option>
+                        </select>
+                    </div>
+                    <div id="weather-container">
+                        <p id="city-name">City: </p>
+                        <p id="weather-description">Weather: </p>
+                        <p id="temperature">Temperature: </p>
+                        <p id="humidity">Humidity: </p>
+                    </div>
+                </section>
+
+                <!-- NASA Picture of the Day Section -->
+                <section class="assignment">
+                    <h2>NASA  Picture of the day</h2>
+                    <div>
+                        <label for="nasa-date">Selecteer een datum:</label>
+                        <input type="date" id="nasa-date" max="2026-12-31" onchange="fetchNasaPhoto()">
+                    </div>
+                    <div id="nasa-container">
+                        <img id="nasa-img" src="" alt="NASA Foto van de dag">
+                        <p id="nasa-title"></p>
+                        <p id="nasa-explanation"></p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Minor Smart Industry</p>
+        </footer>
+
+        <script>
+            const apiKey = '1185e5aaa1cd42de2a4f134d27c380f2';  // OpenWeather API key
+
+            // Function to fetch weather data
+            async function fetchWeather() {
+                const citySelect = document.getElementById('city-select').value;
+                const [city, country] = citySelect.split(',');
+
+                try {
+                    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric&lang=nl`);
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        document.getElementById('city-name').textContent = `Stad: ${data.name}`;
+                        document.getElementById('weather-description').textContent = `Weer: ${data.weather[0].description}`;
+                        document.getElementById('temperature').textContent = `Temperatuur: ${data.main.temp} °C`;
+                        document.getElementById('humidity').textContent = `Lucht vochtigheid: ${data.main.humidity}%`;
+                    } else {
+                        console.error(`Error: ${data.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error fetching the weather data:', error);
+                }
+            }
+
+            // Function to fetch NASA Picture of the Day
+            async function fetchNasaPhoto() {
+                const nasaApiKey = 'MXCGY03TXij2fbCpqnrKf2UGlPrMx8MoqDvTn1I3'; // Replace with your NASA API key
+                const dateInput = document.getElementById('nasa-date').value;
+                
+                // Check if a date is selected; if not, use today's date
+                const selectedDate = dateInput ? dateInput : new Date().toISOString().split('T')[0];
+                
+                try {
+                    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=${nasaApiKey}&date=${selectedDate}`);
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        document.getElementById('nasa-img').src = data.url;
+                        document.getElementById('nasa-title').textContent = `Titel: ${data.title}`;
+                        document.getElementById('nasa-explanation').textContent = `Uitleg: ${data.explanation}`;
+                    } else {
+                        console.error(`Error: ${data.message}`);
+                    }
+                } catch (error) {
+                    console.error('Error fetching the NASA data:', error);
+                }
+            }
+
+            // Fetch default city weather and NASA photo on page load
+            window.onload = () => {
+                fetchWeather();
+                fetchNasaPhoto();
+            };
+        </script>
+    </div>
+</body>
+</html>

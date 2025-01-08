@@ -1,115 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Bram de Weger</title>
     <link rel="stylesheet" href="../../css/base.css">
-    <link rel="stylesheet" href="../../css/tijs.css">
+    <link rel="stylesheet" href="../../css/bram.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 </head>
+
 <body>
     <div class="wrapper">
         <header>
-            <a href="../index.html" class="back-button">← Terug naar homepagina</a>
-            <h1>Portfolio Bram de Weger</h1>
-            <div class="profile-pic">
-                <img src="../../images/bram.jpg" alt="bram de weger">
+            <div class="header-left">
+
+
+                <div class="header-center">
+                    <nav class="navbar">
+                        <ul>
+                            <li><a href="../index.html">HOME</i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <img src="../../images/bram.png" alt="bram" class="profile-pic">
+                <h1>Portfolio Bram de Weger</h1>
             </div>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#smart-technology">Smart Technology</a></li>
-                    <li><a href="#smart-connection">Smart Connection</a></li>
-                    <li><a href="#smart-business">Smart Business</a></li>
-                </ul>
-            </nav>
+            <div class="header-center">
+                <nav class="navbar">
+                    <ul>
+                        <li><a href="SmartMe/smartme.html">Smart Me</a></li>
+                        <li><a href="SmartTech/smarttech.html">Smart Technology</a></li>
+                        <li><a href="SmartCon/smartcon.html">Smart Connection</a></li>
+                        <li><a href="SmartBus/smartbus.html">Smart Business</a></li>
+                    </ul>
+                </nav>
+            </div>
         </header>
 
         <main>
-            <section class="learning-objectives">
-                <h2>Technische leerdoel</h2>
-                <p><strong>Leerdoel:</strong> Beschrijf hier leerdoel 1</p>
-                <p><strong>Status:</strong> Gehaald ja of nee?</p>
-                <p><strong>Explanation:</strong> Waarom jij denkt dat je het gehaald hebt</p>
-            </section>
-
-            <section class="learning-objectives">
-                <h2>Persoonlijk leerdoel</h2>
-                <p><strong>Leerdoel:</strong> Beschrijf hier leerdoel 2</p>
-                <p><strong>Status:</strong> Gehaald ja of nee?</p>
-                <p><strong>Explanation:</strong> Waarom jij denkt dat je het gehaald hebt</p>
-            </section>
-
-            <section class="week-filter">
-                <label for="week-select">Filteren op week:</label>
-                <select id="week-select" onchange="filterWeeks()">
-                    <option value="all">Alle weken</option>
-                    <option value="week1">Week 1</option>
-                    <option value="week2">Week 2</option>
-                    <option value="week3">Week 3</option>
-                    <option value="week4">Week 4</option>
-                </select>
-            </section>
-
-            <section class="weekly-updates">
-                <h2>Wekelijkse updates</h2>
-
-                <div class="week-box" id="week1">
-                    <div class="week-header">Week 1</div>
-                    <div class="week-content">
-                        <p>Blabblabla hier wat text</p>
-                        <img src="../images/smartindustry.png" alt="Minor">
-                        <p>Blabblabla hier wat text</p>
+            <!-- Over mij sectie -->
+            <section class="about-me">
+                <div class="about-me-container">
+                    <img src="../../images/bram.png" alt="Jouw foto" class="round-photo">
+                    <div class="about-me-text">
+                        <h2>Hallo!</h2>
+                        <p>Ik ben Bram de Weger, student Elektrotechniek aan Avans Hogeschool in Den Bosch en woonachtig
+                            in Nijmegen. Momenteel volg ik de minor Smart Industrie, waarin ik mijn passie voor
+                            technologie en innovatieve toepassingen verder ontwikkel. <br>
+                            Tijdens mijn minor Smart Industrie leer ik hoe ik innovatieve technologieën kan toepassen om
+                            bedrijfsprocessen slimmer en efficiënter te maken. Daarbij leer ik de vaardigheid om de taal
+                            van zowel techniek als business te spreken en deze met elkaar te verbinden.</p>
                     </div>
                 </div>
-
-                <div class="week-box" id="week2">
-                    <div class="week-header">Week 2</div>
-                    <div class="week-content">
-                        <p>Blabblabla hier wat text</p>
-                    </div>
-                </div>
-
-                <div class="week-box" id="week3">
-                    <div class="week-header">Week 3</div>
-                    <div class="week-content">
-                        <p>Blabblabla hier wat text</p>
-                        <img src="../images/smartindustry.png" alt="Minor">
-                        <p>Blabblabla hier wat text</p>
-                    </div>
-                </div>
-
-                <div class="week-box" id="week4">
-                    <div class="week-header">Week 4</div>
-                    <div class="week-content">
-                        <p>Blabblabla hier wat text</p>
-                    </div>
-                </div>
-
-                <!-- Add more weeks as needed -->
             </section>
+
+            <!-- Nieuwe sectie met buttons -->
+            <!-- Nieuwe sectie met buttons -->
+            <section class="smart-buttons">
+                <div class="buttons-container">
+                    <a href="SmartMe/smartme.html" class="smart-button">Smart Me</a>
+                    <a href="SmartTech/smarttech.html" class="smart-button">Smart Technology</a>
+                    <a href="SmartCon/smartcon.html" class="smart-button">Smart Connection</a>
+                    <a href="SmartBus/smartbus.html" class="smart-button">Smart Business</a>
+                </div>
+            </section>
+
         </main>
     </div>
 
     <footer>
         <p>&copy; 2024 Minor Smart Industry</p>
     </footer>
-
-    <script>
-        function filterWeeks() {
-            const selectedWeek = document.getElementById('week-select').value;
-            const allWeeks = document.querySelectorAll('.week-box');
-
-            allWeeks.forEach(week => {
-                if (selectedWeek === 'all') {
-                    week.style.display = 'block';
-                } else if (week.id === selectedWeek) {
-                    week.style.display = 'block';
-                    week.scrollIntoView();
-                } else {
-                    week.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </body>
+
 </html>

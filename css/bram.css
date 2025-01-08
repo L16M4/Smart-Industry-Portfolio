@@ -1,0 +1,190 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Zorg ervoor dat de hoogte 100% is voor de hele pagina */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+
+
+/* Over mij sectie */
+.about-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 3rem; /* Vergroot de padding */
+    background-color: rgba(255, 255, 255, 0.5); /* glassmorphism-effect */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-me-container {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.round-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(0, 0, 0, 0.2);
+}
+
+.about-me-text {
+    max-width: 600px;
+    color: #333;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+
+.about-me h2 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.about-me p {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Buttons sectie */
+.smart-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.8); /* glassmorphism-effect */
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.learning-objectives p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    line-height: 1.6;
+    text-align: justify;
+    padding-left: 15px; /* Indent the paragraph */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.smart-button {
+    width: 200px;
+    height: 200px;
+    background-color: #009a44;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.25rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.smart-button:hover {
+    background-color: #007a36;
+    transform: scale(1.05);
+}
+
+/* Globale styling voor een nettere presentatie */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #009a44;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0.5rem 0;
+}
+
+.assignment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+.assignment {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.assignment h2 {
+    text-align: center;
+    color: #009a44;
+    margin-bottom: 1rem;
+}
+
+#weather-container,
+#nasa-container {
+    text-align: center;
+}
+
+#weather-container p,
+#nasa-container p {
+    margin: 0.5rem 0;
+}
+
+select, input[type="date"] {
+    padding: 0.5rem;
+    margin: 1rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+footer {
+    text-align: center;
+    background-color: #009a44;
+    color: white;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Header container */
+header {
+    display: flex;
+    justify-content: space-between; /* Zorgt voor ruimte tussen de linker en midden sectie */
+    align-items: center; /* Zorg ervoor dat ze verticaal gecentreerd zijn */
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #009a44; /* Groene achtergrondkleur */
+    color: white;
+    width: 100%; /* Zorgt ervoor dat de header de volledige breedte vult */
+    box-sizing:border-box ; /* Zorg ervoor dat padding wordt meegeteld in de totale breedte */
+}

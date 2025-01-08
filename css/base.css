@@ -43,7 +43,7 @@ header {
     justify-content: space-between; /* Zorgt voor ruimte tussen de linker en midden sectie */
     align-items: center; /* Zorg ervoor dat ze verticaal gecentreerd zijn */
     padding: 10px 20px;
-    background-color: #4CAF50; /* Groene achtergrondkleur */
+    background-color: #009a44; /* Groene achtergrondkleur */
     color: white;
     width: 100%; /* Zorgt ervoor dat de header de volledige breedte vult */
     box-sizing: border-box; /* Zorg ervoor dat padding wordt meegeteld in de totale breedte */
@@ -81,15 +81,17 @@ header {
 
 .header-left h1 {
     margin: 0;
-    font-size: 2rem;
-    font-family: Montserrat, sans-serif;
+    font-size: 1.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
 }
 
 
 .header-left h1 {
     margin: 0;
-    font-size: 2rem;
-    font-family: Montserrat, sans-serif;
+    font-size: 1.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
 }
 
 /* Centraal gedeelte voor de navigatie */
@@ -121,7 +123,7 @@ header {
 
 .header-center .navbar a:hover {
     background-color: white;
-    color: #4CAF50;
+    color: #009a44;
 }
 
 /* Styling for the learning objectives */
@@ -136,7 +138,7 @@ header {
 
 .learning-objectives h2 {
     font-size: 1.8rem;
-    color: #4CAF50;
+    color: #009a44;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -147,6 +149,7 @@ header {
     line-height: 1.6;
     text-align: justify;
     padding-left: 15px; /* Indent the paragraph */
+
 }
 
 .learning-objectives strong {
@@ -182,7 +185,7 @@ header {
 }
 
 .week-header {
-    background-color: #4CAF50;
+    background-color: #009a44;
     padding: 10px 20px;
     border-radius: 10px 0 0 10px;
     color: white;
